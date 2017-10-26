@@ -1,0 +1,17 @@
+{
+  "name": "typescript-course",
+  "version": "1.0.0",
+  "description": "Assembled Typescript course from various sources and contributions",
+  "main": "dist/index.js",
+  "repository": "git@github.com:jscoobyced/typescript-course.git",
+  "author": "Cedric Rochefolle <19742131+jscoobyced@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^8.0.47",
+    "awesome-typescript-loader": "^3.2.3",
+    "tslint": "^5.8.0",
+    "tslint-loader": "^3.5.3",
+    "typescript": "^2.5.3",
+    "webpack": "^3.8.1"
+  }
+}

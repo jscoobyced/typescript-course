@@ -59,7 +59,7 @@ class PromiseTwo {
                 console.log('Second \'then\': ' + res);
                 throw new Error('Uh oooh...');
             }).catch((reason) => {
-                console.log('First \'catch\': ' + reason);
+                console.log('First \'catch\': ' + reason.message);
                 return 'We\'ve recovered!';
             })
             .then((res) => {
@@ -88,7 +88,7 @@ class PromiseThree {
                 console.log('Second \'then\': ' + res);
                 throw new Error('Uh oooh...');
             }).catch((reason) => {
-                console.log('First \'catch\': ' + reason);
+                console.log('First \'catch\': ' + reason.message);
                 return 'We\'ve recovered!';
             })
             .then((res) => {
@@ -107,7 +107,6 @@ class PromiseThree {
 
 class PromiseFour {
     public run(name: string, callback: number): void {
-        console.log();
         this.readFileAsync('./src/assets/' + name)
             .then((result) => {
                 return JSON.parse(result.toString());

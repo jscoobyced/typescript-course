@@ -2,6 +2,7 @@ import { NoAsyncCourses } from './async/no-async';
 import { PromiseCourses } from './async/promise';
 import { GeneratorCourses } from './async/generator';
 import { AsyncCourses } from './async/async';
+import { AsyncExercise } from './async/exercise';
 
 export class RunCourse {
 
@@ -12,7 +13,8 @@ export class RunCourse {
     }
 
     public run(): void {
-        if (this.commandArguments !== undefined && this.commandArguments.length > 2) {
+        if (this.commandArguments !== undefined
+             && (this.commandArguments.length > 2 || this.commandArguments[0].indexOf('exercise') > 0)) {
             this.runCommand(this.commandArguments);
         } else {
             console.log('No argument provided.');
@@ -45,6 +47,13 @@ export class RunCourse {
             const asyncCourses = new AsyncCourses();
             try {
                 asyncCourses.run(name[1], parseInt(name[2], 10), parseInt(name[3], 10));
+            } catch (error) {
+                console.error('Damnit! You crashed your app!');
+            }
+        } else if (name[0] === 'asyncexercise') {
+            const asyncExercise = new AsyncExercise();
+            try {
+                asyncExercise.run();
             } catch (error) {
                 console.error('Damnit! You crashed your app!');
             }
